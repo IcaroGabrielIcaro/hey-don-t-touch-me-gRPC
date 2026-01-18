@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package desenho;
+
+service DesenhoService {
+  rpc Reclamar (ReclamacaoRequest) returns (ReclamacaoResponse);
+}
+
+message ReclamacaoRequest {
+  string evento = 1;
+}
+
+message ReclamacaoResponse {
+  string texto = 1;
+}

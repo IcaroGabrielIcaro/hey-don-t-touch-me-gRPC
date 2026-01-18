@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col items-center mt-10 gap-4">
+
+  <img id="desenho"
+       src="desenho.png"
+       class="w-64 cursor-pointer" />
+
+  <p id="fala" class="text-xl font-semibold"></p>
+
+  <script>
+    const img = document.getElementById("desenho");
+    const fala = document.getElementById("fala");
+
+    img.onclick = async () => {
+      const res = await fetch("http://localhost:8000/clicar");
+      const data = await res.json();
+      fala.innerText = data.texto;
+    };
+  </script>
+
+</body>
+</html>
