@@ -20,10 +20,11 @@ FRASES = [
 
 class DesenhoService(desenho_pb2_grpc.DesenhoServiceServicer):
     def Reclamar(self, request, context):
-        print(f"[CALL] Reclamar | evento='{request.evento}'")
-        return desenho_pb2.ReclamacaoResponse(
+        texto = desenho_pb2.ReclamacaoResponse(
             texto=random.choice(FRASES)
         )
+        print(texto)
+        return texto
 
 def serve():
     port = 50051

@@ -5,27 +5,40 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="flex flex-col items-center mt-10 gap-4">
+<body class="min-h-screen flex items-center">
 
-  <img
-    id="desenho"
-    src="/images/feliz.png"
-    class="w-64 cursor-pointer select-none"
-  />
+  <!-- Container geral -->
+  <div class="relative ml-10">
 
-  <p id="fala" class="text-2xl font-bold text-red-600 text-center"></p>
+    <img
+      id="desenho"
+      src="/images/feliz.png"
+      class="w-[700px] cursor-pointer select-none"
+    />
+
+    <img
+      id="balao"
+      src="/images/balao.png"
+      class="absolute top-1 left-[700px] w-120 hidden pointer-events-none"
+    />
+
+    <p
+      id="fala"
+      class="absolute top-[140px] left-[850px] w-[400px] text-center text-[30px] font-bold text-black hidden pointer-events-none leading-tight"
+    ></p>
+
+  </div>
 
   <script>
     const img = document.getElementById("desenho");
+    const balao = document.getElementById("balao");
     const fala = document.getElementById("fala");
 
     let timeoutId = null;
 
     img.onclick = async () => {
-      // troca pra raiva imediatamente
       img.src = "/images/raiva.png";
 
-      // limpa timeout anterior (caso clique rápido)
       if (timeoutId) {
         clearTimeout(timeoutId);
         timeoutId = null;
@@ -34,14 +47,21 @@
       try {
         const res = await fetch("http://localhost:8000/reclamar?evento=click");
         const data = await res.json();
+
+        balao.classList.remove("hidden");
+        fala.classList.remove("hidden");
         fala.innerText = data.texto;
+
       } catch {
+        balao.classList.remove("hidden");
+        fala.classList.remove("hidden");
         fala.innerText = "Erro ao reclamar 😡";
       }
 
-      // volta pra feliz e esconde a mensagem após 3 segundos
       timeoutId = setTimeout(() => {
         img.src = "/images/feliz.png";
+        balao.classList.add("hidden");
+        fala.classList.add("hidden");
         fala.innerText = "";
         timeoutId = null;
       }, 3000);
