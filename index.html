@@ -7,26 +7,10 @@
 
 <body class="min-h-screen flex items-center">
 
-  <!-- Container geral -->
   <div class="relative ml-10">
-
-    <img
-      id="desenho"
-      src="/images/feliz.png"
-      class="w-[700px] cursor-pointer select-none"
-    />
-
-    <img
-      id="balao"
-      src="/images/balao.png"
-      class="absolute top-1 left-[700px] w-120 hidden pointer-events-none"
-    />
-
-    <p
-      id="fala"
-      class="absolute top-[140px] left-[850px] w-[400px] text-center text-[30px] font-bold text-black hidden pointer-events-none leading-tight"
-    ></p>
-
+    <img id="desenho" src="/images/feliz.png" class="w-[700px] cursor-pointer select-none"/>
+    <img id="balao" src="/images/balao.png" class="absolute top-1 left-[700px] w-120 hidden pointer-events-none"/>
+    <p id="fala" class="absolute top-[140px] left-[850px] w-[400px] text-center text-[30px] font-bold text-black hidden pointer-events-none leading-tight"></p>
   </div>
 
   <script>
@@ -45,7 +29,7 @@
       }
 
       try {
-        const res = await fetch("http://localhost:8000/reclamar?evento=click");
+        const res = await fetch("http://localhost:3000/reclamar?evento=click");
         const data = await res.json();
 
         balao.classList.remove("hidden");
@@ -55,7 +39,7 @@
       } catch {
         balao.classList.remove("hidden");
         fala.classList.remove("hidden");
-        fala.innerText = "Erro ao reclamar 😡";
+        fala.innerText = "Estou com tanta raiva que deu erro!";
       }
 
       timeoutId = setTimeout(() => {
