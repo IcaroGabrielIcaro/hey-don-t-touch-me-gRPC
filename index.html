@@ -45,7 +45,7 @@
       }
 
       try {
-        const res = await fetch("http://localhost:3000/reclamar?evento=click");
+        const res = await fetch("http://10.25.1.129:3000/reclamar?evento=click");
         const data = await res.json();
 
         balao.classList.remove("hidden");
