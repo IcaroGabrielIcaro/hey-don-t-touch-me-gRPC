@@ -2,7 +2,7 @@
 
 <img width="1544" height="637" alt="raiva" src="https://github.com/user-attachments/assets/8c844d43-0ea8-4d9c-869c-eaefd37deed3" />
 
-Sistema simples para testar **interação entre frontend, FastAPI e gRPC**, com respostas divertidas e imagens que mudam ao clicar.
+Sistema simples para testar **interação entre frontend, Hapi e gRPC**, com respostas divertidas e imagens que mudam ao clicar.
 
 ## Ideia
 
