@@ -8,9 +8,25 @@
 <body class="min-h-screen flex items-center">
 
   <div class="relative ml-10">
-    <img id="desenho" src="/images/feliz.png" class="w-[700px] cursor-pointer select-none"/>
-    <img id="balao" src="/images/balao.png" class="absolute top-1 left-[700px] w-120 hidden pointer-events-none"/>
-    <p id="fala" class="absolute top-[140px] left-[850px] w-[400px] text-center text-[30px] font-bold text-black hidden pointer-events-none leading-tight"></p>
+
+    <img
+      id="desenho"
+      src="/images/feliz.png"
+      class="w-[700px] cursor-pointer select-none"
+    />
+
+    <!-- Balão de fala -->
+    <img
+      id="balao"
+      src="/images/balao.png"
+      class="absolute top-1 left-[700px] w-120 hidden pointer-events-none"
+    />
+
+    <!-- Texto dentro do balão -->
+    <p
+      id="fala"
+      class="absolute top-[140px] left-[850px] w-[400px] text-center text-[30px] font-bold text-black hidden pointer-events-none leading-tight"
+    ></p>
   </div>
 
   <script>
@@ -39,7 +55,7 @@
       } catch {
         balao.classList.remove("hidden");
         fala.classList.remove("hidden");
-        fala.innerText = "Estou com tanta raiva que deu erro!";
+        fala.innerText = "Haha! Nem achei ruim porque deu erro!";
       }
 
       timeoutId = setTimeout(() => {
